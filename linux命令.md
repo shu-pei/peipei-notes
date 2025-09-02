@@ -88,7 +88,7 @@ git是最先进的分布式版本控制系统
 
 工作原理：
 
-![git原理](E:\project\typora md\image\git1.jpg "git工作原理")
+![git原理](./image/git1.jpg "git工作原理")
 
 + workspace： 工作区
 + Index：暂存区
@@ -249,6 +249,11 @@ git push/pull <remote-name> <branch>
 git push/pull
 ```
 
+将本地分支与远程分支建立链接：
+```bash
+git branch --set-upstream <branch-name> <remote-name>/<remote-branch-name>
+```
+
 ### 五、创建与合并分支
 
 创建分支：
@@ -265,12 +270,52 @@ git checkout <name>
 创建并切换分支：
 
 ```bash
-git checkout -b <name>
+git checkout -b <name> <remote-name>/<branch-name>
 ```
 
 查看当前分支：
 
 ```bash
 git branch
+```
+
+合并分支：
+```bash
+git merge <name>
+```
+
+删除分支：
+```bash
+git branch -d <name>
+```
+
+### 六、储藏
+
+将已跟踪的文件储藏起来，恢复工作区：
+```bash
+git stash save "储藏说明"
+```
+
+查看储藏列表：
+```bash
+git stash list
+```
+
+恢复储藏：
+
+```bash
+git stash apply stash@{0}
+```
+
+删除储藏：
+
+```bash
+git stash drop stash@{0}
+```
+
+恢复最近一次储藏，并删除
+
+```bash
+git stash pop
 ```
 
